@@ -1,6 +1,4 @@
-
-# Install Ubuntu 24.04 with GUI in Windows 11 using WSL2 🎨
-
+# 🖥️ Install Ubuntu 24.04 with GUI in Windows 11 using WSL2 🎨
 
 Welcome to the guide! In this repository, you’ll learn how to install Ubuntu 24.04 with a graphical user interface (GUI) on Windows 11 using WSL2 (Windows Subsystem for Linux). WSL2 allows you to run a full-fledged Ubuntu environment on your Windows machine without the need for dual-booting or using a virtual machine, making it an incredibly efficient way to work with Linux.
 
@@ -24,7 +22,7 @@ WSL2 is a lightweight, fast, and convenient way to run Linux distributions on yo
 
 
 
-## Prerequisites
+## 🔧 Prerequisites
 
 Before getting started, make sure your system meets the following requirements:
 
@@ -36,21 +34,21 @@ Before getting started, make sure your system meets the following requirements:
 
 - Virtual Machine Platform feature enabled in Windows.
 
-
 If you don't have WSL2 enabled yet, follow the setup instructions provided below.
 
 
-## Step-by-Step Installation Guide
 
-### Step 1: Enable WSL on Windows 11
+## 📝 Step-by-Step Installation Guide
 
-###### 1. Open PowerShell as Administrator and run the following command to enable WSL:
+### 1️⃣ Step 1: Enable WSL on Windows 11
+
+1. Open PowerShell as Administrator and run the following command to enable WSL:
 ```bash
 wsl --install
 ```
-###### 2. Restart your system to apply the changes.
+2. Restart your system to apply the changes.
 
-### Step 2: Set WSL2 as the Default Version
+### 2️⃣ Step 2: Set WSL2 as the Default Version
 
 To ensure that future installations use WSL2 (which has improved performance and full system call compatibility), set WSL2 as the default version by running the following command in PowerShell:
 
@@ -58,7 +56,7 @@ To ensure that future installations use WSL2 (which has improved performance and
 wsl --set-default-version 2
 ```
 
-### Step 3: Verify WSL Version
+### 3️⃣ Step 3: Verify WSL Version
 
 Once WSL is installed and the default version is set, verify the WSL version by running the following command:
 
@@ -70,79 +68,81 @@ wsl --version
 Ensure that Version 2 is shown as the default.
 
 
-### Step 4: (Method - 1) Install Ubuntu 24.04 via Microsoft Store 
+### 4️⃣ Step 4: (Method - 1) Install Ubuntu 24.04 via Microsoft Store
 
-###### 1. Open the Microsoft Store and search for Ubuntu 24.04.
+1. Open the Microsoft Store and search for Ubuntu 24.04.
 ![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/microsoft%20store%20ubuntu.png)
-###### 2. Click on Get and then Install.
 
-###### 3. After installation, launch Ubuntu 24.04 from the Start menu.
+3. Click on Get and then Install.
 
-###### 4. Follow the on-screen setup, including creating a username and password.
+4. After installation, launch Ubuntu 24.04 from the Start menu.
 
-### Step 5: (Method 2) Install Ubuntu 24.04 using Command Line
+4. Follow the on-screen setup, including creating a username and password.
+
+### 5️⃣ Step 5: (Method 2) Install Ubuntu 24.04 using Command Line
 
 If you prefer using the command line to install Ubuntu, follow these steps:
 
-###### 1. Open PowerShell as Administrator.
+1. Open PowerShell as Administrator.
 
-###### 2. Run the following command to list the available distributions:
+2. Run the following command to list the available distributions:
 
 ```bash
 wsl --list --online
 ```
 ![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/wsl%20list%20online.png)
-###### 3. Install Ubuntu 24.04 using this command:
+
+3. Install Ubuntu 24.04 using this command:
 ```bash
 wsl --install -d Ubuntu-24.04
 ```
 
-###### 4. Follow the setup instructions after installation.
+4. Follow the setup instructions after installation.
 
 
-### Step 6: Update and Upgrade Ubuntu Packages
+### 6️⃣ Step 6: Update and Upgrade Ubuntu Packages
 
 After installing Ubuntu, it’s important to update the package lists and upgrade the system to ensure you have the latest software and security patches.
 
-###### 1. Update and Upgrade Packages:
+1. Update and Upgrade Packages:
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-###### 2. Full System Upgrade (to upgrade all packages including kernel and essential system packages):
+2. Full System Upgrade (to upgrade all packages including kernel and essential system packages):
 ```bash
 sudo apt update && sudo apt full-upgrade -y
 ```
 
-### Step 7: Install a GUI and XRDP for Ubuntu 24.04
+### 7️⃣ Step 7: Install a GUI and XRDP for Ubuntu 24.04
 
 To install a graphical desktop environment and access it via Remote Desktop, follow these steps:
 
-###### 1. Install XFCE Desktop and XFCE goodies (a lightweight and fast desktop environment):
+1. Install XFCE Desktop and XFCE goodies (a lightweight and fast desktop environment):
 
 ```bash
 sudo apt install xfce4 xfce4-goodies -y
 ```
 
-###### 2. Install XRDP (Remote Desktop Protocol server) to enable remote desktop access:
+2. Install XRDP (Remote Desktop Protocol server) to enable remote desktop access:
 
 ```bash
 sudo apt install xrdp -y
 ```
 
-###### 3. Backup the XRDP configuration file:
+3. Backup the XRDP configuration file:
 
 ```bash
 sudo cp /etc/xrdp/xrdp.ini /etc/xrdp/xrdp.ini.bak
 ```
 
-###### 4. Modify XRDP port number to avoid conflicts with the default port:
+4. Modify XRDP port number to avoid conflicts with the default port:
 
 ```bash
 sudo sed -i 's/3389/3390/g' /etc/xrdp/xrdp.ini
 ```
 
-###### 5. Increase XRDP color depth for better display quality:
+5. Increase XRDP color depth for better display quality:
 
 ```bash
 sudo sed -i 's/max_bpp=32/#max_bpp=32\nmax_bpp=128/g' /etc/xrdp/xrdp.ini
@@ -152,24 +152,24 @@ sudo sed -i 's/max_bpp=32/#max_bpp=32\nmax_bpp=128/g' /etc/xrdp/xrdp.ini
 sudo sed -i 's/xserverbpp=24/#xserverbpp=24\nxserverbpp=128/g' /etc/xrdp/xrdp.ini
 ```
 
-###### 6. Start the XRDP service to allow remote connections:
+6. Start the XRDP service to allow remote connections:
 
 ```bash
 sudo /etc/init.d/xrdp start
 ```
 
 
-### Step 8: Configure XRDP to Use XFCE4 Desktop
+### 8️⃣ Step 8: Configure XRDP to Use XFCE4 Desktop
 
 To ensure that XRDP starts the XFCE desktop environment correctly when you connect via Remote Desktop, you need to modify the XRDP startup script:
 
-###### 1. Open the startwm.sh file for editing:
+1. Open the startwm.sh file for editing:
 
 ```bash
 sudo nano /etc/xrdp/startwm.sh
 ```
 
-###### 2. Comment out the last two existing lines: In the file, find the following lines at the bottom:
+2. Comment out the last two existing lines: In the file, find the following lines at the bottom:
 
 ```bash
 test -x /etc/X11/Xsession && exec /etc/X11/Xsession
@@ -184,20 +184,20 @@ Comment these lines by adding # at the beginning:
 ```
 
 
-###### 3. Add the command to start XFCE4: Below the commented lines, add the following command:
+3. Add the command to start XFCE4: Below the commented lines, add the following command:
 
 ```bash
 startxfce4
 ```
 ![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/stratxfce4.png)
 
-###### 4. Save and exit the Nano editor:
+4. Save and exit the Nano editor:
 
 - Press Ctrl+S to save the changes.
 - Press Ctrl+X to exit the editor.
 
 
-###### 5. Restart the XRDP service to apply the changes:
+5. Restart the XRDP service to apply the changes:
 
 ```bash
 sudo /etc/init.d/xrdp start
@@ -205,60 +205,61 @@ sudo /etc/init.d/xrdp start
 
 This step ensures that when you log in via Remote Desktop, the XFCE desktop environment will be launched, giving you access to the graphical interface of Ubuntu 24.04.
 
-### Step 9: Launch the Ubuntu GUI via Remote Desktop
+### 9️⃣ Step 9: Launch the Ubuntu GUI via Remote Desktop
 
-###### 1. Open Remote Desktop Connection on your Windows machine (search for "Remote Desktop" in the Start menu).
+1. Open Remote Desktop Connection on your Windows machine (search for "Remote Desktop" in the Start menu).
 
-###### 2. Enter ` localhost:3390 ` as the remote address (since we changed the port to 3390).
+2. Enter ` localhost:3390 ` as the remote address (since we changed the port to 3390).
 ![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/localhost3390.png)
 
-###### 3. Login using the username and password you set during the Ubuntu setup process.
+3. Login using the username and password you set during the Ubuntu setup process.
 
-###### 4. You should now see the full XFCE desktop environment, allowing you to interact with a GUI on your Ubuntu 24.04 system.
+4. You should now see the full XFCE desktop environment, allowing you to interact with a GUI on your Ubuntu 24.04 system.
 ![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/gui%20interface.png)
 
-### Step 10: Verify Installation and Enjoy
+### 🔄 Step 10: Verify Installation and Enjoy
 
 After logging in, you should see the full Ubuntu desktop interface. You can now run graphical Linux applications (e.g., GIMP, Visual Studio Code, etc.) alongside your Windows apps.
 
 
 
-## How to Start Ubuntu 24.04 with GUI After Shutdown or Restart
+## ⏰ How to Start Ubuntu 24.04 with GUI After Shutdown or Restart
 
-### Step 1: (Method - 1) Open Ubuntu 24.04 via WSL
+### 💻 Step 1: (Method - 1) Open Ubuntu 24.04 via WSL
 
-###### 1. Open PowerShell or Command Prompt on your Windows 11 machine.
+1. Open PowerShell or Command Prompt on your Windows 11 machine.
 
-###### 2. Start WSL and launch Ubuntu 24.04 by running:
+2. Start WSL and launch Ubuntu 24.04 by running:
 ```bash
 wsl
 ```
-###### 3. If Ubuntu does not start automatically, you can specify the distribution with:
+3. If Ubuntu does not start automatically, you can specify the distribution with:
 ```bash
 wsl -d Ubuntu-24.04
 ```
 
 
-### Step 2: (Method - 2) Open Ubuntu 24.04 App directly from the Start Menu 
+### 🖥️ Step 2: (Method - 2) Open Ubuntu 24.04 App directly from the Start Menu
+
 If you prefer using the Ubuntu app directly, follow this method:
 
-###### 1. Open Ubuntu 24.04 from Start Menu:
+1. Open Ubuntu 24.04 from Start Menu:
 
 - Click on the Start Menu and scroll down to All Apps.
 
 - Find and click on the Ubuntu 24.04 logo.
 
-###### 2. When the Ubuntu app opens, it will take you directly to the Ubuntu shell.
+2. When the Ubuntu app opens, it will take you directly to the Ubuntu shell.
 
-###### 3. Open Remote Desktop Connection:
+3. Open Remote Desktop Connection:
 
 - On your Windows 11 machine, open the Remote Desktop Connection app (search in Start menu).
 
 - Enter `localhost:3390` as the computer address and click Connect.
 
-###### 4. If the above step gives any Error Message
+4. If the above step gives any Error Message
 
-###### Start the XRDP Service:
+Start the XRDP Service:
 
 - In the Ubuntu terminal, start the XRDP service by running:
 ```bash
@@ -266,29 +267,29 @@ sudo /etc/init.d/xrdp start
 ```
 - Then repeat the point 3.
 
-###### 5. Login to XFCE Desktop:
+5. Login to XFCE Desktop:
 
 - Enter your Ubuntu username and password to access the XFCE desktop environment.
 
-## Demo
 
-Insert gif or link to demo
+## 🎥 Demo
 
+LINK
 
 
 ## 🛠️ Troubleshooting
 
-### Issue: Ubuntu GUI Not Displaying
+### ❗ Issue: Ubuntu GUI Not Displaying
 
-###### 1. Ensure the XRDP service is running:
+1. Ensure the XRDP service is running:
 
 ```bash
 sudo /etc/init.d/xrdp status
 ```
 
-###### 2. Ensure the Remote Desktop Connection is set to the correct port (localhost:3390).
+2. Ensure the Remote Desktop Connection is set to the correct port (localhost:3390).
 
-###### 3. Restart WSL:
+3. Restart WSL:
 ```bash
 wsl --shutdown
 wsl
@@ -318,28 +319,27 @@ wsl
 - Customize Your Desktop: Use themes and tweak XFCE settings to personalize your Linux desktop experience.
 
 
-## Author
+## 👨‍💻 Author
 
 - [@SCSBalaji](https://www.github.com/SCSBalaji)
 
 
-## Contributing
+## 🤝 Contributing
 
 Feel free to contribute to this repository. If you have suggestions, find bugs, or want to add new features, please open an issue or submit a pull request!
 
 Contributions are always welcome!
 
 
-## License
+## ⚖️ License
 This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License - see the LICENSE file for more details.
 
 
-## Support
-
+## 💬 Support
 For support, join our [Telegram](https://t.me/github_discussion_group) Discussion Group.
 
 
-## Frequently Asked Questions (FAQs)
+## ❓ Frequently Asked Questions (FAQs)
 
 #### 1. What is WSL2?
 
@@ -416,14 +416,14 @@ XRDP is a remote desktop server that allows you to connect to your Ubuntu system
 
 To access Ubuntu's GUI, follow these steps:
 
-###### 1. Start WSL: Open Ubuntu from PowerShell, Command Prompt, or the Start menu.
+1. Start WSL: Open Ubuntu from PowerShell, Command Prompt, or the Start menu.
 
-###### 2. Start the XRDP service:
+2. Start the XRDP service:
 ```bash
 sudo /etc/init.d/xrdp start
 ```
 
-###### 3. Open Remote Desktop Connection in Windows and connect using localhost:3390.
+3. Open Remote Desktop Connection in Windows and connect using localhost:3390.
 
 ------------------------------------------------------------
 #### 10. How do I change the default port for XRDP?
