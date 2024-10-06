@@ -73,7 +73,7 @@ Ensure that Version 2 is shown as the default.
 ### Step 4: (Method - 1) Install Ubuntu 24.04 via Microsoft Store 
 
 ###### 1. Open the Microsoft Store and search for Ubuntu 24.04.
-![Reference]()
+![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/microsoft%20store%20ubuntu.png)
 ###### 2. Click on Get and then Install.
 
 ###### 3. After installation, launch Ubuntu 24.04 from the Start menu.
@@ -91,7 +91,7 @@ If you prefer using the command line to install Ubuntu, follow these steps:
 ```bash
 wsl --list --online
 ```
-![Reference]()
+![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/wsl%20list%20online.png)
 ###### 3. Install Ubuntu 24.04 using this command:
 ```bash
 wsl --install -d Ubuntu-24.04
@@ -189,7 +189,7 @@ Comment these lines by adding # at the beginning:
 ```bash
 startxfce4
 ```
-![Reference]()
+![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/stratxfce4.png)
 
 ###### 4. Save and exit the Nano editor:
 
@@ -210,12 +210,12 @@ This step ensures that when you log in via Remote Desktop, the XFCE desktop envi
 ###### 1. Open Remote Desktop Connection on your Windows machine (search for "Remote Desktop" in the Start menu).
 
 ###### 2. Enter ` localhost:3390 ` as the remote address (since we changed the port to 3390).
-![Reference]()
+![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/localhost3390.png)
 
 ###### 3. Login using the username and password you set during the Ubuntu setup process.
 
 ###### 4. You should now see the full XFCE desktop environment, allowing you to interact with a GUI on your Ubuntu 24.04 system.
-![Reference]()
+![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/gui%20interface.png)
 
 ### Step 10: Verify Installation and Enjoy
 
@@ -302,6 +302,7 @@ wsl
  - [XFCE Documentation](https://docs.xfce.org/)
  - [WSL2 Overview](https://learn.microsoft.com/en-us/windows/wsl/compare-versions)
  - [VS Code Remote WSL Extension](https://code.visualstudio.com/docs/remote/wsl)
+
 ## 💡 Additional Tips & Tricks
 - Running Linux GUI Apps: You can directly run GUI apps without launching the full desktop. For example, run Gedit using:
 
@@ -329,12 +330,8 @@ Feel free to contribute to this repository. If you have suggestions, find bugs, 
 Contributions are always welcome!
 
 
-
 ## License
 This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License - see the LICENSE file for more details.
-
-
-
 
 
 ## Support
@@ -343,7 +340,6 @@ For support, join our [Telegram](https://t.me/github_discussion_group) Discussio
 
 
 ## Frequently Asked Questions (FAQs)
-
 
 #### 1. What is WSL2?
 
@@ -373,7 +369,7 @@ You can check whether WSL is installed by opening PowerShell or Command Prompt a
 ```bash
 wsl --list --verbose
 ```
-![Reference]()
+![Reference](https://github.com/SCSBalaji/Install-Ubuntu-24.04-using-WSL2/blob/a6543f2cf94a850a0f58bb3f388f4e41407a093d/Reference%20Images/wsl%20list%20verbose.png)
 
 If no distributions are listed, follow the steps in this guide to install WSL.
 
