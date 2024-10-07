@@ -274,7 +274,7 @@ sudo /etc/init.d/xrdp start
 
 ## 🎥 Demo
 
-LINK
+https://youtu.be/p3yMG30QAqM?si=lP3MSDA4AQNhyCOt
 
 
 ## 🛠️ Troubleshooting
